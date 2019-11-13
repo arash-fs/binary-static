@@ -1921,10 +1921,17 @@ a.previous-wrapper {
     max-width: 245px;
     margin-top: 22px;
     margin-left: 16px; }
+    @media (max-width: 768px) {
+      #deriv_banner_container .platform_image {
+        display: none; } }
   #deriv_banner_container .watermark_background {
     position: absolute;
     right: 12.3%;
     top: 19.5%; }
+    @media (max-width: 768px) {
+      #deriv_banner_container .watermark_background {
+        right: 3.3%;
+        width: 450px; } }
   #deriv_banner_container div {
     margin: 49px 0 10px 16px;
     z-index: 1; }

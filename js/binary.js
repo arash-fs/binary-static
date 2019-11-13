@@ -9148,7 +9148,7 @@ var ThirdPartyLinks = function () {
         return !!destination.host && !new RegExp('^.*\\.' + (getCurrentBinaryDomain() || 'binary\\.com') + '$').test(destination.host) // destination host is not binary subdomain
         && !new RegExp('^.*\\.binary\\.bot$').test(destination.host) // destination host is not binary subdomain
         && !/www.(betonmarkets|xodds).com/.test(destination.host) // destination host is not binary old domain
-        && !/www.(deriv).(app|com)/.test(destination.host) // destination host is not deriv
+        && !/www.deriv.(app|com)/.test(destination.host) // destination host is not deriv
         && window.location.host !== destination.host;
     };
 
