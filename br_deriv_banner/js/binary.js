@@ -33636,7 +33636,6 @@ module.exports = RealityCheckUI;
 "use strict";
 
 
-var generateBirthDate = __webpack_require__(/*! ../../common/attach_dom/birth_date_picker */ "./src/javascript/app/common/attach_dom/birth_date_picker.js");
 var FormManager = __webpack_require__(/*! ../../common/form_manager */ "./src/javascript/app/common/form_manager.js");
 var Login = __webpack_require__(/*! ../../../_common/base/login */ "./src/javascript/_common/base/login.js");
 var localize = __webpack_require__(/*! ../../../_common/localize */ "./src/javascript/_common/localize.js").localize;
@@ -33670,18 +33669,9 @@ var ResetPassword = function () {
     };
 
     var onLoad = function onLoad() {
-        generateBirthDate();
-
-        $('#have_real_account').off('click').on('click', function () {
-            if ($('#have_real_account_option_0').is(':checked')) {
-                $('#dob_field').setVisibility(1);
-            } else {
-                $('#dob_field').setVisibility(0);
-            }
-        });
-
         var form_id = '#frm_reset_password';
-        FormManager.init(form_id, [{ selector: '#have_real_account', validations: ['req'], exclude_request: 1 }, { selector: '#date_of_birth', validations: ['req'] }, { selector: '#new_password', validations: ['req', 'password'], re_check_field: '#repeat_password' }, { selector: '#repeat_password', validations: ['req', ['compare', { to: '#new_password' }]], exclude_request: 1 }, { request_field: 'reset_password', value: 1 }], true);
+
+        FormManager.init(form_id, [{ selector: '#have_real_account', validations: ['req'], exclude_request: 1 }, { selector: '#new_password', validations: ['req', 'password'], re_check_field: '#repeat_password' }, { selector: '#repeat_password', validations: ['req', ['compare', { to: '#new_password' }]], exclude_request: 1 }, { request_field: 'reset_password', value: 1 }], true);
 
         FormManager.handleSubmit({
             form_selector: form_id,

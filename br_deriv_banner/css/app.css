@@ -1940,6 +1940,12 @@ a.previous-wrapper {
     #deriv_banner_container div h2 {
       font-weight: bold;
       margin-bottom: 10px; }
+      @media (max-width: 768px) {
+        #deriv_banner_container div h2 {
+          font-size: 1rem; } }
+    @media (max-width: 768px) {
+      #deriv_banner_container div h5 {
+        font-size: 0.8695652174rem; } }
   #deriv_banner_container div.button_container {
     margin: 26px 0 0; }
     #deriv_banner_container div.button_container a.deriv_button {
