@@ -1913,14 +1913,20 @@ a.previous-wrapper {
   display: flex;
   width: 100%;
   height: 200px;
-  background-image: url("../images/deriv/group.png");
   position: relative;
   margin-bottom: 40px; }
+  #deriv_banner_container .deriv_banner_background {
+    -o-object-fit: fill;
+       object-fit: fill;
+    width: 100%;
+    height: 200px;
+    position: absolute; }
   #deriv_banner_container .platform_image {
     max-height: 157px;
     max-width: 245px;
     margin-top: 22px;
-    margin-left: 16px; }
+    margin-left: 16px;
+    z-index: 10; }
     @media (max-width: 768px) {
       #deriv_banner_container .platform_image {
         display: none; } }
@@ -1928,9 +1934,17 @@ a.previous-wrapper {
     position: absolute;
     right: 12.3%;
     top: 19.5%; }
-    @media (max-width: 768px) {
+    @media (max-width: 425px) {
       #deriv_banner_container .watermark_background {
-        right: 3.3%;
+        -webkit-transform: scale(0.7, 1);
+                transform: scale(0.7, 1);
+        right: -10%;
+        width: 450px; } }
+    @media (max-width: 325px) {
+      #deriv_banner_container .watermark_background {
+        -webkit-transform: scale(0.7, 1);
+                transform: scale(0.7, 1);
+        right: -20%;
         width: 450px; } }
   #deriv_banner_container div {
     margin: 49px 0 10px 16px;
@@ -1947,7 +1961,7 @@ a.previous-wrapper {
       #deriv_banner_container div h5 {
         font-size: 0.8695652174rem; } }
   #deriv_banner_container div.button_container {
-    margin: 26px 0 0; }
+    margin: 30px 0 0; }
     #deriv_banner_container div.button_container a.deriv_button {
       background-color: #cc2e3d;
       width: 123px;
