@@ -1972,6 +1972,9 @@ a.previous-wrapper {
       font-weight: bold;
       text-decoration: none;
       border-radius: 4px; }
+  @media (max-width: 1024px) {
+    #deriv_banner_container {
+      display: none; } }
 
 .api_token fieldset {
   margin: 20px 0; }
