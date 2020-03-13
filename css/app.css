@@ -481,6 +481,37 @@ a.previous-wrapper {
   text-align: center; }
   .mt-sidebar-button .small-icon img {
     width: 76px; }
+  .mt-sidebar-button .mt-link-download {
+    background-color: #f2f2f2;
+    width: 100%;
+    height: inherit;
+    border-top: 1px solid #dedede; }
+    .mt-sidebar-button .mt-link-download .mt-link-button {
+      display: inline-block;
+      margin-top: 10px; }
+  .mt-sidebar-button .mt-title-mt5-web {
+    font-weight: bold; }
+  .mt-sidebar-button .mt-link-web {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    margin-top: 10px;
+    height: 40px; }
+    .mt-sidebar-button .mt-link-web .mt5-web-link {
+      -webkit-box-flex: 50%;
+          -ms-flex: 50%;
+              flex: 50%;
+      background-color: #f2f2f2;
+      height: 40px;
+      line-height: 40px;
+      border: 1px solid #dedede; }
+
+.mt-sidebar-button.mt5-web {
+  height: 140px; }
+
+tbody#instruments > tr > td {
+  width: 33%; }
 
 #portfolio td {
   padding: 10px;
@@ -645,9 +676,9 @@ a.previous-wrapper {
         .inpage_popup_container .inpage_popup_content_box #sell_content_wrapper #sell_details_table td, .inpage_popup_container .inpage_popup_content_box #sell_content_wrapper #sell_details_table td[data-balloon], .inpage_popup_container .inpage_popup_content_box #sell_content_wrapper #sell_details_audit td, .inpage_popup_container .inpage_popup_content_box #sell_content_wrapper #sell_details_audit td[data-balloon] {
           border-bottom: 1px solid #f2f2f2;
           vertical-align: middle; }
-        .inpage_popup_container .inpage_popup_content_box #sell_content_wrapper #sell_details_table #trade_details_profit_loss, .inpage_popup_container .inpage_popup_content_box #sell_content_wrapper #sell_details_audit #trade_details_profit_loss {
+        .inpage_popup_container .inpage_popup_content_box #sell_content_wrapper #sell_details_table #trade_details_profit_loss, .inpage_popup_container .inpage_popup_content_box #sell_content_wrapper #sell_details_table #trade_details_total_pnl, .inpage_popup_container .inpage_popup_content_box #sell_content_wrapper #sell_details_audit #trade_details_profit_loss, .inpage_popup_container .inpage_popup_content_box #sell_content_wrapper #sell_details_audit #trade_details_total_pnl {
           font-weight: bold; }
-          .inpage_popup_container .inpage_popup_content_box #sell_content_wrapper #sell_details_table #trade_details_profit_loss span.percent, .inpage_popup_container .inpage_popup_content_box #sell_content_wrapper #sell_details_audit #trade_details_profit_loss span.percent {
+          .inpage_popup_container .inpage_popup_content_box #sell_content_wrapper #sell_details_table #trade_details_profit_loss span.percent, .inpage_popup_container .inpage_popup_content_box #sell_content_wrapper #sell_details_table #trade_details_total_pnl span.percent, .inpage_popup_container .inpage_popup_content_box #sell_content_wrapper #sell_details_audit #trade_details_profit_loss span.percent, .inpage_popup_container .inpage_popup_content_box #sell_content_wrapper #sell_details_audit #trade_details_total_pnl span.percent {
             font-size: 0.6575162324rem;
             padding-left: 7px;
             font-weight: normal; }
@@ -1861,97 +1892,6 @@ a.previous-wrapper {
 
 .show-mb {
   display: none; }
-
-#binary_grid_banner {
-  padding-top: 0; }
-  #binary_grid_banner h3 {
-    line-height: 1.14; }
-  #binary_grid_banner > * {
-    padding: 0 !important;
-    border: solid 0.5px #dedede; }
-  #binary_grid_banner .banner-image {
-    left: -1px;
-    top: -1px;
-    margin-bottom: -1px;
-    position: relative;
-    max-height: 90px; }
-    @media (max-width: 480px) {
-      #binary_grid_banner .banner-image {
-        visibility: hidden;
-        display: none; }
-        #binary_grid_banner .banner-image-m {
-          position: relative;
-          left: -1px;
-          top: -1px;
-          visibility: visible;
-          display: -webkit-box !important;
-          display: -ms-flexbox !important;
-          display: flex !important;
-          max-height: 90px;
-          max-width: 93px; } }
-  @media (max-width: 480px) {
-    #binary_grid_banner .banner-text {
-      visibility: hidden;
-      display: none; }
-      #binary_grid_banner .banner-text-m {
-        visibility: visible;
-        display: -webkit-box !important;
-        display: -ms-flexbox !important;
-        display: flex !important; } }
-  @media (max-width: 768px) {
-    #binary_grid_banner .banner-text {
-      font-size: 18px; } }
-  #binary_grid_banner .button {
-    margin-bottom: 0; }
-    @media (max-width: 480px) {
-      #binary_grid_banner .button {
-        padding: 0; } }
-
-#deriv_banner_container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  height: 200px;
-  background-image: url("../images/deriv/group.png");
-  position: relative;
-  margin-bottom: 40px; }
-  #deriv_banner_container .platform_image {
-    max-height: 157px;
-    max-width: 245px;
-    margin-top: 22px;
-    margin-left: 16px; }
-    @media (max-width: 768px) {
-      #deriv_banner_container .platform_image {
-        display: none; } }
-  #deriv_banner_container .watermark_background {
-    position: absolute;
-    right: 12.3%;
-    top: 19.5%; }
-    @media (max-width: 768px) {
-      #deriv_banner_container .watermark_background {
-        right: 3.3%;
-        width: 450px; } }
-  #deriv_banner_container div {
-    margin: 49px 0 10px 16px;
-    z-index: 1; }
-    #deriv_banner_container div h2, #deriv_banner_container div h5 {
-      color: #fff; }
-    #deriv_banner_container div h2 {
-      font-weight: bold;
-      margin-bottom: 10px; }
-  #deriv_banner_container div.button_container {
-    margin: 26px 0 0; }
-    #deriv_banner_container div.button_container a.deriv_button {
-      background-color: #cc2e3d;
-      width: 123px;
-      height: 40px;
-      color: #fff;
-      padding: 10px 16px;
-      font-size: 0.8695652174rem;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 4px; }
 
 .api_token fieldset {
   margin: 20px 0; }
