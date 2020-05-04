@@ -1057,7 +1057,8 @@ label + input {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  text-decoration: none !important; }
+  text-decoration: none !important;
+  margin-bottom: 3rem; }
   .mt5_banner__background {
     position: absolute;
     width: 100%;
@@ -1113,7 +1114,8 @@ label + input {
       height: 70px;
       -webkit-box-pack: center;
           -ms-flex-pack: center;
-              justify-content: center; }
+              justify-content: center;
+      margin-bottom: 2rem; }
       .mt5_banner__content {
         font-size: 0.7561436673rem;
         padding: 0;
