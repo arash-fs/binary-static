@@ -146,6 +146,7 @@ const Validation = (() => {
     const validPhone        = value => /^\+((-|\s)*[0-9])*$/.test(value);
     const validRegular      = (value, options) => options.regex.test(value);
     const validEmailToken   = value => value.trim().length === 8;
+    const compareToEmail    = value => Client.get('email').localeCompare(value);
 
     const validCompare  = (value, options) => value === $(options.to).val();
     const validNotEqual = (value, options) => value !== $(options.to).val();
@@ -227,22 +228,23 @@ const Validation = (() => {
         let validators_map;
 
         const initValidatorsMap = () => ({
-            req          : { func: validRequired,     message: '' },
-            email        : { func: validEmail,        message: localize('Invalid email address.') },
-            password     : { func: validPassword,     message: localize('Password should have lower and uppercase letters with numbers.') },
-            general      : { func: validGeneral,      message: localize('Only letters, numbers, space, hyphen, period, and apostrophe are allowed.') },
-            address      : { func: validAddress,      message: localize('Only letters, numbers, space, and these special characters are allowed: [_1]', '- . \' # ; : ( ) , @ /') },
-            letter_symbol: { func: validLetterSymbol, message: localize('Only letters, space, hyphen, period, and apostrophe are allowed.') },
-            postcode     : { func: validPostCode,     message: localize('Only letters, numbers, space, and hyphen are allowed.') },
-            phone        : { func: validPhone,        message: localize('Please enter a valid phone number, including the country code (e.g. +15417541234).') },
-            compare      : { func: validCompare,      message: localize('The two passwords that you entered do not match.') },
-            not_equal    : { func: validNotEqual,     message: localizeKeepPlaceholders('[_1] and [_2] cannot be the same.') },
-            min          : { func: validMin,          message: localizeKeepPlaceholders('Minimum of [_1] characters required.') },
-            length       : { func: validLength,       message: localizeKeepPlaceholders('You should enter [_1] characters.') },
-            number       : { func: validNumber,       message: '' },
-            regular      : { func: validRegular,      message: '' },
-            tax_id       : { func: validTaxID,        message: localize('Should start with letter or number, and may contain hyphen and underscore.') },
-            token        : { func: validEmailToken,   message: localize('Invalid verification code.') },
+            req             : { func: validRequired,     message: '' },
+            email           : { func: validEmail,        message: localize('Invalid email address.') },
+            password        : { func: validPassword,     message: localize('Password should have lower and uppercase letters with numbers.') },
+            general         : { func: validGeneral,      message: localize('Only letters, numbers, space, hyphen, period, and apostrophe are allowed.') },
+            address         : { func: validAddress,      message: localize('Only letters, numbers, space, and these special characters are allowed: [_1]', '- . \' # ; : ( ) , @ /') },
+            letter_symbol   : { func: validLetterSymbol, message: localize('Only letters, space, hyphen, period, and apostrophe are allowed.') },
+            postcode        : { func: validPostCode,     message: localize('Only letters, numbers, space, and hyphen are allowed.') },
+            phone           : { func: validPhone,        message: localize('Please enter a valid phone number, including the country code (e.g. +15417541234).') },
+            compare         : { func: validCompare,      message: localize('The two passwords that you entered do not match.') },
+            not_equal       : { func: validNotEqual,     message: localizeKeepPlaceholders('[_1] and [_2] cannot be the same.') },
+            min             : { func: validMin,          message: localizeKeepPlaceholders('Minimum of [_1] characters required.') },
+            length          : { func: validLength,       message: localizeKeepPlaceholders('You should enter [_1] characters.') },
+            number          : { func: validNumber,       message: '' },
+            regular         : { func: validRegular,      message: '' },
+            tax_id          : { func: validTaxID,        message: localize('Should start with letter or number, and may contain hyphen and underscore.') },
+            token           : { func: validEmailToken,   message: localize('Invalid verification code.') },
+            compare_to_email: { func: compareToEmail,    message: localize('You cannot use your email address as your password.') },
         });
 
         return {
