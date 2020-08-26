@@ -14026,6 +14026,9 @@ var Validation = function () {
     var validEmailToken = function validEmailToken(value) {
         return value.trim().length === 8;
     };
+    var compareToEmail = function compareToEmail(value) {
+        return Client.get('email').localeCompare(value);
+    };
 
     var validCompare = function validCompare(value, options) {
         return value === $(options.to).val();
@@ -14134,7 +14137,8 @@ var Validation = function () {
                 number: { func: validNumber, message: '' },
                 regular: { func: validRegular, message: '' },
                 tax_id: { func: validTaxID, message: localize('Should start with letter or number, and may contain hyphen and underscore.') },
-                token: { func: validEmailToken, message: localize('Invalid verification code.') }
+                token: { func: validEmailToken, message: localize('Invalid verification code.') },
+                compare_to_email: { func: compareToEmail, message: localize('You cannot use your email address as your password.') }
             };
         };
 
@@ -27247,7 +27251,7 @@ var ChangePassword = function () {
     var form_id = '#frm_change_password';
 
     var init = function init() {
-        FormManager.init(form_id, [{ selector: '#old_password', validations: ['req', ['length', { min: 6, max: 25 }]], clear_form_error_on_input: true }, { selector: '#new_password', validations: ['req', ['length', { min: 8, max: 25 }], 'password', ['not_equal', { to: '#old_password', name1: localize('Current password'), name2: localize('New password') }]], re_check_field: '#repeat_password' }, { selector: '#repeat_password', validations: ['req', ['compare', { to: '#new_password' }]], exclude_request: 1 }, { request_field: 'change_password', value: 1 }]);
+        FormManager.init(form_id, [{ selector: '#old_password', validations: ['req', ['length', { min: 6, max: 25 }]], clear_form_error_on_input: true }, { selector: '#new_password', validations: ['req', ['length', { min: 8, max: 25 }], 'password', ['not_equal', { to: '#old_password', name1: localize('Current password'), name2: localize('New password') }], 'compare_to_email'], re_check_field: '#repeat_password' }, { selector: '#repeat_password', validations: ['req', ['compare', { to: '#new_password' }]], exclude_request: 1 }, { request_field: 'change_password', value: 1 }]);
         FormManager.handleSubmit({
             form_selector: form_id,
             fnc_response_handler: handler
@@ -35259,7 +35263,7 @@ var ResetPassword = function () {
     var onLoad = function onLoad() {
         var form_id = '#frm_reset_password';
 
-        FormManager.init(form_id, [{ selector: '#have_real_account', validations: ['req'], exclude_request: 1 }, { selector: '#new_password', validations: ['req', ['length', { min: 8, max: 25 }], 'password'], re_check_field: '#repeat_password' }, { selector: '#repeat_password', validations: ['req', ['compare', { to: '#new_password' }]], exclude_request: 1 }, { request_field: 'reset_password', value: 1 }], true);
+        FormManager.init(form_id, [{ selector: '#have_real_account', validations: ['req'], exclude_request: 1 }, { selector: '#new_password', validations: ['req', ['length', { min: 8, max: 25 }], 'password', 'compare_to_email'], re_check_field: '#repeat_password' }, { selector: '#repeat_password', validations: ['req', ['compare', { to: '#new_password' }]], exclude_request: 1 }, { request_field: 'reset_password', value: 1 }], true);
 
         FormManager.handleSubmit({
             form_selector: form_id,
